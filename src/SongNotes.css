@@ -1,0 +1,11 @@
+.songNote{
+    padding: 20px; 
+    font-size: 10px;
+    color: white; 
+}
+.description{
+    border: solid blue; 
+    height: 100px; 
+    width: 340px; 
+    text-align: center;
+}

@@ -1,0 +1,68 @@
+.containTask{
+
+
+}
+
+.task {
+    display: flex; 
+    align-items: center;
+    white-space: nowrap; 
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    height: 27px; 
+    padding: 2px 5px 2px 5px; 
+    margin-top: 2px;
+    border: solid blue; 
+    border-width: 1px;
+    border-radius: 5px;
+    margin: 3px; 
+  }
+  .line_through{
+    text-decoration: line-through;
+  }
+  .checkbox{
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox .icon{
+    color: red;
+    margin-right: 5px;
+    font-size: 15px;
+  }
+  .task div span {
+    margin: 0px 5px 0px 4px;
+  }
+  .task div .icon {
+    cursor: pointer; 
+  }
+  
+.toDoContainer {
+    /* justify-content: center; */
+    width: 345px; 
+    display: flex;
+    overflow-x: scroll;
+    background: linear-gradient(blue, red);
+    height: 42px; 
+}
+
+.toDoContainer-img {
+    border: solid white;
+    height: 200px;
+    margin-inline: 1em;
+}
+
+.toDoContainer::-webkit-scrollbar {
+    display: none;
+  }
+
+.songCarousel{
+  display: block; 
+  margin: auto; 
+  color: white;
+}
+
+.theSongNote{
+  width: 
+}
