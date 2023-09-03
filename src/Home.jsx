@@ -1,20 +1,17 @@
 import React from 'react'
-import Create from './Create'
-import ToDoContainer from './ToDoContainer'
-import SongNotes from './SongNotes'
+import CreateSong from './CreateSong'
+import SongContainer from './SongContainer'
 import './App.css'
-import {v4 as uuidv4} from 'uuid'; 
-
+import SongNoteContainer from './SongNoteContainer'
 
 function Home() {
     
   return (
     <div className="home">
-
         <h2>Repertoire List</h2>
-        <Create />
-        <ToDoContainer  /> 
-        {/* <SongNotes />  */}
+        <CreateSong />
+        <SongContainer  /> 
+        <SongNoteContainer />
     </div>
   )
 }

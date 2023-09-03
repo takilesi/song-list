@@ -1,17 +1,23 @@
 import React, {useState} from 'react'
-import "./SongNotes.css"
+import "./CreateSongNote.css"
 import axios from 'axios'
 
-function SongNotes({currentTodo}) {
+function CreateSongNote({currentSong}) {
     const [songNote, setSongNote] = useState()
 
-    console.log("SongNotes: ", currentTodo);
+    console.log("SongNote: ", currentSong);
+    console.log("SongNote: Current song id: ", currentSong._id);
    
     const handleAdd = () => {
         // pass this data to the server side route 
-        axios.post('http://localhost:3111/addsongnote', {songNote: songNote, songName: currentTodo.task})
-        // console.log("any songNote?: ", songNote)
-        // console.log("any task?: ", currentTodo.task)
+        axios.post('http://localhost:3111/addsongnote', 
+        {
+          songNote: songNote, 
+          songName: currentSong.task,
+          songNameId: currentSong._id
+        })
+        
+        // console.log("song id for notes list: ", currentSong._id);
 
         .then(result => {
           location.reload()
@@ -21,7 +27,7 @@ function SongNotes({currentTodo}) {
 
   return ( 
     <div>
-        <p>Enter note for... {currentTodo.task}</p> 
+        <p>Enter note for... {currentSong.task}</p> 
         <div className="create_form">
             <input  type="text" placeholder="Song Note" onChange={(e) => setSongNote(e.target.value)} />
             <button type="button" onClick={handleAdd}>Add</button>
@@ -30,4 +36,4 @@ function SongNotes({currentTodo}) {
   )
 }
 
-export default SongNotes
+export default CreateSongNote

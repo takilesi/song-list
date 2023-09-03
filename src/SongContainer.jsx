@@ -1,22 +1,25 @@
+// get
+// put 
+// delete
 import React, { useState, useEffect }  from 'react'
 import axios from 'axios'
-import "./ToDoContainer.css"
-import SongNotes from './SongNotes'
+import "./SongContainer.css"
+import CreateSongNote from './CreateSongNote'
 
 
-function ToDoContainer() {
+function SongContainer() {
 
-    const [todos, setTodos] = useState([])
-    const [currentTodo, setCurrentTodo] = useState([])
+    const [songs, setSongs] = useState([])
+    const [currentSong, setCurrentSong] = useState([])
 
     useEffect(() => {
     
          axios.get('http://localhost:3111/get')
         .then(result => {
             
-            // setTodoToPass(todoToPass)
-            setTodos(result.data)
-            console.log("ToDoContainer / useEffect", result.data)
+            // setSongToPass(songToPass)
+            setSongs(result.data)
+            console.log("SongContainer / useEffect", result.data)
         })
         .catch(err => console.log(err))
     // dependancy, only runs on 
@@ -39,34 +42,34 @@ function ToDoContainer() {
     }
 
     const handleClick = (i) => {
-        setCurrentTodo(todos[i])
-        console.log('You clicked on',todos[i])
+        setCurrentSong(songs[i])
+        console.log('You clicked on',songs[i])
       }
 
   return (
     <div>
         <div className="toDoContainer">
             {
-                todos.length === 0 
+                songs.length === 0 
                 ? 
                 <div><h3>No Record</h3></div>
                 :
-                todos.map((todo, index)  => (
+                songs.map((song, index)  => (
                     <div className="containTask">
                         <div className="task">
-                            <div className="checkbox" onClick={() => handleEdit(todo._id)}>
+                            <div className="checkbox" onClick={() => handleEdit(song._id)}>
                                 <label className='icon' >
                                     <input type="checkbox"></input> 
                                 </label>
                             </div> 
-                                <p onClick={()=> {handleClick(index)}} className={todo.done 
+                                <p onClick={()=> {handleClick(index)}} className={song.done 
                                     ? 
                                     "line_through" 
                                     : 
-                                    ""}> {todo.task} </p>
+                                    ""}> {song.task} </p>
                             <div>
                                 <span className='icon' 
-                                    onClick={() => handleDelete(todo._id)}>🗑️</span>
+                                    onClick={() => handleDelete(song._id)}>🗑️</span>
                             </div>
                         
                         </div>
@@ -76,9 +79,9 @@ function ToDoContainer() {
             
             
         </div>
-        <SongNotes currentTodo={currentTodo} /> 
+        <CreateSongNote currentSong={currentSong} /> 
     </div>
   )
 }
 
-export default ToDoContainer
+export default SongContainer

@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import "./Create.css"
+import "./CreateSong.css"
 
-function Create() {
-    const [task, setTask] = useState()
+function CreateSong() {
+    const [song, setSong] = useState()
     const handleAdd = () => {
       // pass this data to the server side route 
-      axios.post('http://localhost:3111/add', {task: task})
+      axios.post('http://localhost:3111/add', {song: song})
       .then(result => {
         location.reload()
       })
@@ -14,10 +14,10 @@ function Create() {
     }
   return (
     <div className="create_form">
-        <input  type="text" placeholder="Enter Song" onChange={(e) => setTask(e.target.value)} />
+        <input  type="text" placeholder="Enter Song" onChange={(e) => setSong(e.target.value)} />
         <button type="button" onClick={handleAdd}>Add</button>
     </div>
   )
 }
 
-export default Create
+export default CreateSong
