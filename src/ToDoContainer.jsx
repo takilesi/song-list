@@ -2,7 +2,7 @@ import React, { useState, useEffect }  from 'react'
 import axios from 'axios'
 import "./ToDoContainer.css"
 import SongNotes from './SongNotes'
-import {v4 as uuidv4} from 'uuid'; 
+
 
 function ToDoContainer() {
 
@@ -53,7 +53,7 @@ function ToDoContainer() {
                 :
                 todos.map((todo, index)  => (
                     <div className="containTask">
-                        <div key={uuidv4()} className="task">
+                        <div className="task">
                             <div className="checkbox" onClick={() => handleEdit(todo._id)}>
                                 <label className='icon' >
                                     <input type="checkbox"></input> 

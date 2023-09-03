@@ -13,9 +13,8 @@ function Home() {
 
         <h2>Repertoire List</h2>
         <Create />
-        <ToDoContainer key={uuidv4()} /> 
-       
-
+        <ToDoContainer  /> 
+        {/* <SongNotes />  */}
     </div>
   )
 }
