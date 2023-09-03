@@ -3,10 +3,12 @@ import "./CreateSongNote.css"
 import axios from 'axios'
 
 function CreateSongNote({currentSong}) {
+    // const [currentSong, setCurrentSong] = useState(currentSong); 
     const [songNote, setSongNote] = useState()
 
     console.log("SongNote: ", currentSong);
-    console.log("SongNote: Current song id: ", currentSong._id);
+    console.log("What is in songNote? ", songNote);
+    console.log("Create Song Note TEST ", currentSong._id);
    
     const handleAdd = () => {
         // pass this data to the server side route 
