@@ -5,9 +5,11 @@ import axios from 'axios'
 function CreateSongNote({currentSong}) {
     // const [currentSong, setCurrentSong] = useState(currentSong); 
     const [songNote, setSongNote] = useState()
+    const songName = currentSong.task
+    const songNameId = currentSong._id
 
-    console.log("SongNote: ", currentSong);
-    console.log("What is in songNote? ", songNote);
+    console.log("currentSong variable: ", currentSong.task);
+
     console.log("Create Song Note TEST ", currentSong._id);
    
     const handleAdd = () => {
@@ -15,8 +17,8 @@ function CreateSongNote({currentSong}) {
         axios.post('http://localhost:3111/addsongnote', 
         {
           songNote: songNote, 
-          songName: currentSong.task,
-          songNameId: currentSong._id
+          songName: songName,
+          songNameId: songNameId
         })
         
         // console.log("song id for notes list: ", currentSong._id);
