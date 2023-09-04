@@ -50,15 +50,15 @@ function SongNoteContainer( {currentSong, trigger} ) {
             if (tempSongNotes.songName === currentSong) {
                 songsTemp.push(songNotes) 
             }
-        }
+        };
         setCurrentSongNoteList(songsTemp)
-
-        useEffect(() => {
-            if (trigger) {
-              log();
-            }
-        }, [trigger]);
     }
+
+    useEffect(() => {
+        if (trigger) {
+          log();
+        }
+    }, [trigger]);
 
   return (
     <div className="songNoteContainer">
