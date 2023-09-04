@@ -5,11 +5,11 @@ import "./SongNoteContainer.css"
 function SongNoteContainer( {currentSong, trigger} ) {
 
     const [songNotes, setSongNotes] = useState([])
-    const [tempSongNotes, setTempSongNotes] = useState([])
     const [currentSongNoteList, setCurrentSongNoteList] = useState([])
 
     console.log("In 2nd Child, currentSong: ", currentSong.task);
     console.log("In 2nd Child, trigger: ", trigger);
+    console.log("songNotes array; ", songNotes)
 
     useEffect(() => {
     
@@ -44,30 +44,35 @@ function SongNoteContainer( {currentSong, trigger} ) {
    const log = () => {
 
         console.log("phone call from parent")
-
-        const songsTemp = []
-        for (let i=0; i<tempSongNotes.length; i++) {
-            if (tempSongNotes.songName === currentSong) {
-                songsTemp.push(songNotes) 
-            }
-        };
-        setCurrentSongNoteList(songsTemp)
+        
+        setCurrentSongNoteList(songNotes.filter((s) => s.songName === currentSong.task)) 
+    
+        console.log("XX", songNotes.songName)
+        console.log("XXcurrentSong", currentSong.task)
+        console.log("2phone call from parent", currentSongNoteList)
+        
     }
 
     useEffect(() => {
         if (trigger) {
           log();
+
         }
     }, [trigger]);
 
+    // const isEven = (value) => value % 2 === 0;
+    // const even = input.filter(isEven);
+
+
   return (
     <div className="songNoteContainer">
+    {/* {songNotes.filter(name => name.includes(currentSong))} */}
     {
-        songNotes.length === 0 
+        currentSongNoteList.length === 0 
         ? 
         <div><h3>No Record</h3></div>
         :
-        songNotes.map((songNote, index)  => (
+        currentSongNoteList.map((songNote, index)  => (
             <div className="containTask">
                 <div className="task">
                     <div className="checkbox" onClick={() => handleEdit(songNote._id)}>

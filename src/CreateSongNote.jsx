@@ -33,7 +33,7 @@ function CreateSongNote( {currentSong, trigger} ) {
         <p>Enter note for... {currentSong.task}</p> 
         <div className="create_form">
             <input  type="text" placeholder="Song Note" onChange={(e) => setSongNote(e.target.value)} />
-            <button type="button" onClick={handleAdd}>{"Add" + trigger}</button>
+            <button type="button" onClick={handleAdd}>Add</button>
         </div>
         <SongNoteContainer currentSong={currentSong} trigger={trigger}/>
     </div>
