@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import "./CreateSongNote.css"
 import axios from 'axios'
+import SongNoteContainer from './SongNoteContainer'
 
-function CreateSongNote({currentSong}) {
+function CreateSongNote( {currentSong}, {handleClick} ) {
     // const [currentSong, setCurrentSong] = useState(currentSong); 
     const [songNote, setSongNote] = useState()
     const songName = currentSong.task
@@ -36,6 +37,7 @@ function CreateSongNote({currentSong}) {
             <input  type="text" placeholder="Song Note" onChange={(e) => setSongNote(e.target.value)} />
             <button type="button" onClick={handleAdd}>Add</button>
         </div>
+        <SongNoteContainer currentSong={currentSong} handleClick={handleClick}/>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import CreateSong from './CreateSong'
 import SongContainer from './SongContainer'
 import './App.css'
-import SongNoteContainer from './SongNoteContainer'
+
 
 function Home() {
     
@@ -11,7 +11,7 @@ function Home() {
         <h2>Repertoire List</h2>
         <CreateSong />
         <SongContainer  /> 
-        <SongNoteContainer />
+      
     </div>
   )
 }

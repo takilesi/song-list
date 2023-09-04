@@ -43,8 +43,9 @@ function SongContainer() {
 
     const handleClick = (i) => {
         setCurrentSong(songs[i])
+        // eachSongsNotes()
         console.log('You clicked on',songs[i])
-      }
+    }
 
   return (
     <div>
@@ -79,7 +80,7 @@ function SongContainer() {
             
             
         </div>
-        <CreateSongNote currentSong={currentSong} /> 
+        <CreateSongNote currentSong={currentSong} handleClick={handleClick}/> 
     </div>
   )
 }

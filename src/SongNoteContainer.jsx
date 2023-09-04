@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import "./SongNoteContainer.css"
 
-function SongNoteContainer() {
+function SongNoteContainer( {currentSong}, {handleClick} ) {
 
     const [songNotes, setSongNotes] = useState([])
-    const [currentSongNote, setCurrentSongNote] = useState([])
+    const [tempSongNotes, setTempSongNotes] = useState([])
+    const [currentSongNoteList, setCurrentSongNoteList] = useState([])
 
     useEffect(() => {
     
         axios.get('http://localhost:3111/getsongnote')
        .then(result => {
            
-           // setSongToPass(songToPass)
-           setSongNotes(result.data)
-           console.log("SongNotesContainer / useEffect", result.data)
+            setTempSongNotes(result.data)
+            console.log("SongNotesContainer / useEffect", result.data)
        })
        .catch(err => console.log(err))
    // dependancy, only runs on 
@@ -36,12 +36,17 @@ function SongNoteContainer() {
        .catch(err => console.log(err))
    }
 
+  
 
-   const handleClick = (i) => {
-    setCurrentSongNote(songNotes[i])
-    console.log('You clicked on',songNotes[i])
-   }
-
+//    const eachSongsNotes = () => {
+//         const songsTemp = []
+//         for (let i=0; i<tempSongNotes.length; i++) {
+//             if (tempSongNotes.songName === currentSong) {
+//                 songsTemp.push(songNotes) 
+//             }
+//         }
+//         setCurrentSongNoteList(songsTemp)
+//     }
 
   return (
     <div className="songNoteContainer">
@@ -58,7 +63,7 @@ function SongNoteContainer() {
                             <input type="checkbox"></input> 
                         </label>
                     </div> 
-                        <p onClick={()=> {handleClick(index)}} className={songNote.done 
+                        <p className={songNote.done 
                             ? 
                             "line_through" 
                             : 
