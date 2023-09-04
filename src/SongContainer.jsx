@@ -11,6 +11,7 @@ function SongContainer() {
 
     const [songs, setSongs] = useState([])
     const [currentSong, setCurrentSong] = useState([])
+    const [trigger, setTrigger] = useState(0); 
 
     useEffect(() => {
     
@@ -45,6 +46,7 @@ function SongContainer() {
         setCurrentSong(songs[i])
         // eachSongsNotes()
         console.log('You clicked on',songs[i])
+        console.log("Trigger in Parent: ", trigger)
     }
 
   return (
@@ -63,7 +65,11 @@ function SongContainer() {
                                     <input type="checkbox"></input> 
                                 </label>
                             </div> 
-                                <p onClick={()=> {handleClick(index)}} className={song.done 
+                                <p onClick={()=>  {
+                                        handleClick(index);
+                                        setTrigger((trigger) => trigger + 1)
+                                    }} 
+                                    className={song.done 
                                     ? 
                                     "line_through" 
                                     : 
@@ -80,7 +86,7 @@ function SongContainer() {
             
             
         </div>
-        <CreateSongNote currentSong={currentSong} handleClick={handleClick}/> 
+        <CreateSongNote currentSong={currentSong} trigger={trigger}/> 
     </div>
   )
 }
